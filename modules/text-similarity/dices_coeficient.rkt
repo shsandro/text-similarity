@@ -2,6 +2,8 @@
 
 (provide dices_coeficient)
 
+(require (only-in "../util/length.rkt" list-length))
+
 (define bigrams (lambda (l1 l2) (map list l1 l2)))
 
 (define (string_to_list string_a)
@@ -19,5 +21,5 @@
 (define (dices_coeficient text1 text2)
     (define set1 (make_bigrams text1))
     (define set2 (make_bigrams text2))
-    (/ (* 2 (length (set-intersect set1 set2))) (+ (length set1) (length set2)))
+    (/ (* 2 (list-length (set-intersect set1 set2))) (+ (list-length set1) (list-length set2)))
 )
