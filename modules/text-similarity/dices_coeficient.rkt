@@ -1,6 +1,6 @@
 #lang racket
 
-(provide dices_coeficient)
+(provide dices_coeficient make_bigrams)
 
 (require (only-in "../util/length.rkt" list-length))
 
@@ -19,7 +19,7 @@
 )
 
 (define (dices_coeficient text1 text2)
-    (define set1 (make_bigrams text1))
-    (define set2 (make_bigrams text2))
+    (define set1 (make_bigrams (string-downcase text1)))
+    (define set2 (make_bigrams (string-downcase text2)))
     (/ (* 2 (list-length (set-intersect set1 set2))) (+ (list-length set1) (list-length set2)))
 )
