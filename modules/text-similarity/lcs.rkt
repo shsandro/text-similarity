@@ -1,6 +1,6 @@
 #lang racket
 
-(provide lcs)
+(provide lcs get_lcs)
 
 (require (only-in "../util/max.rkt" max))
 (require memoize)
