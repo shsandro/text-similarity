@@ -1,5 +1,7 @@
 #lang racket
 
+(provide lcs)
+
 (require (only-in "../util/max.rkt" max))
 (require memoize)
 
@@ -14,10 +16,6 @@
 )
 
 (define (lcs text1 text2)
-    (get_lcs (string->list (string-downcase text1)) (string->list (string-downcase text2)))
+    (define lcs_length (get_lcs (string->list (string-downcase text1)) (string->list (string-downcase text2))))
+    (+ (* (/ lcs_length (string-length text1)) 0.5) (* (/ lcs_length (string-length text2)) 0.5))
 )
-
-(define a "OLA TESTE LONGEST COMMON SUBSEQUENCE FIRST ARGUMENT")
-(define b "OLA TESTE LONGEST COMMON SUBSEQUENCE SECOND ARGUMENT")
-
-(time (lcs a b))
