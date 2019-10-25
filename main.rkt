@@ -2,21 +2,32 @@
 
 (require (only-in "modules/text-similarity/dices_coefficient.rkt" dices_coefficient make_bigrams))
 (require (only-in "modules/text-similarity/lcs.rkt" lcs get_lcs))
+(require (only-in "modules/util/correlation.rkt" correlation-xy))
+(require "texts/texts.rkt")
 
-(define a "John Smith")
-(define b "Smith, John D.")
+(define (lcs-data)
+    (list
+        (lcs text1 text2)
+        (lcs text3 text4)
+        (lcs text5 text6)
+        (lcs text7 text8)
+    )
+)
 
-(define c "ALGORITHMS ARE FUN")
-(define d "LOGARITHMS ARE NOT")
+(define (dices_coefficient-data)
+    (list
+        (dices_coefficient text1 text2)
+        (dices_coefficient text3 text4)
+        (dices_coefficient text5 text6)
+        (dices_coefficient text7 text8)
+    )
+)
 
-(define e "LoopBack")
+(define (make-correlation)
+    (if (equal? algorithm "0")
+        (correlation-xy texts-similarity (dices_coefficient-data))
+        (correlation-xy texts-similarity (lcs-data))
+    )
+)
 
-(get_lcs (string->list (string-downcase "John Smith")) (string->list (string-downcase "Smith, John D.")))
-(get_lcs (string->list (string-downcase "ALGORITHMS ARE FUN")) (string->list (string-downcase "LOGARITHMS ARE NOT")))
-(get_lcs (string->list (string-downcase "Lilo Stitch")) (string->list (string-downcase "Little String")))
-(get_lcs (string->list (string-downcase "LoopBack")) (string->list (string-downcase "LoopBack")))
-(get_lcs (string->list (string-downcase "EFG HELLO")) (string->list (string-downcase "ABCD")))
-
-(lcs "John Smith" "Smith, John D.")
-(lcs "ALGORITHMS ARE FUN" "LOGARITHMS ARE NOT")
-(lcs "Lilo Stitch" "Little String")
+(make-correlation)
