@@ -1,5 +1,8 @@
 #lang racket
 
+;;; Este algoritmo provê o coeficiente de correlação linear de Pearson
+;;; As amostras devem possuir o mesmo tamanho
+
 (provide correlation-xy)
 
 (define (sum-xy x y)

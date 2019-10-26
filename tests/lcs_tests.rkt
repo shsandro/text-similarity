@@ -1,5 +1,6 @@
 #lang racket
 
+(provide get-lcs-test lcs-test)
 (require (only-in "../modules/text-similarity/lcs.rkt" lcs get_lcs))
 
 (require rackunit)
@@ -54,6 +55,3 @@
     )
   )
 )
-
-(run-tests get-lcs-test)
-(run-tests lcs-test)

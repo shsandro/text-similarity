@@ -1,5 +1,6 @@
 #lang racket
 
+(provide make-bigrams-test dices-coefficient-test)
 (require (only-in "../modules/text-similarity/dices_coefficient.rkt" dices_coefficient make_bigrams))
 
 (require rackunit)
@@ -53,6 +54,3 @@
     )
   )
 )
-
-(run-tests make-bigrams-test)
-(run-tests dices-coefficient-test)
