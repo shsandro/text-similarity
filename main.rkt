@@ -24,9 +24,15 @@
 )
 
 (define (make-correlation)
-    (if (equal? algorithm "0")
-        (correlation-xy texts-similarity (dices_coefficient-data))
-        (correlation-xy texts-similarity (lcs-data))
+    (if (equal? correlation? "1")
+        (if (equal? algorithm "0")
+            (correlation-xy texts-similarity (dices_coefficient-data))
+            (correlation-xy texts-similarity (lcs-data))
+        )
+        (if (equal? algorithm "0")
+            (dices_coefficient-data)
+            (lcs-data)
+        )
     )
 )
 
