@@ -6,6 +6,7 @@
 (require rackunit)
 (require rackunit/text-ui)
 
+;;; Função de teste para o retorno da maior subsequencia crescente
 (define get-lcs-test
   (test-suite
     "get-lcs-test"
@@ -31,6 +32,7 @@
   )
 )
 
+;;; Função de teste para normalização da maior subsequencia crescente
 (define lcs-test
   (test-suite
     "lcs-test"

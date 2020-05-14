@@ -6,6 +6,7 @@
 (require rackunit)
 (require rackunit/text-ui)
 
+;;; Função de teste para a construção dos bigrams de uma palavra
 (define make-bigrams-test 
   (test-suite
     "make-bigrams-test"
@@ -31,6 +32,7 @@
   )
 )
 
+;;; Função de teste para verificação do coeficiente de Dice
 (define dices-coefficient-test
   (test-suite "dices-coefficient-test"
     (test-case "John Smith - Smith, John D."
